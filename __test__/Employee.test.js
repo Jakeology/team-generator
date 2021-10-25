@@ -6,7 +6,6 @@ test("creates an employee object", () => {
   expect(employee.name).toBe("Dave");
   expect(employee.email).toBe("email@email.com");
   expect(employee.id).toEqual(expect.any(Number));
-  console.log(employee);
 });
 
 test("get employees name value", () => {
