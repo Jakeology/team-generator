@@ -44,6 +44,35 @@ function teamMenu() {
         getTeam();
       });
   }
+
+  function getTeam() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "addTeamMember",
+          message: "Which type of team member would you like to add?",
+          choices: ["Engineer", "Intern", "Finish adding team members"],
+        },
+      ])
+      .then((choice) => {
+        switch (choice.addTeamMember) {
+          case "Engineer":
+            //getEngineer();
+            break;
+          case "Intern":
+            //getIntern();
+            break;
+          default:
+          //generateTeam();
+        }
+      });
+  }
 }
 
-function getTeam() {}
+function generateTeam() {
+  if (!fs.existsSync("./dist")) {
+    fs.mkdirSync("./dist");
+  }
+  fs.writeFileSync("./dist/index.html", pageTemplate(teamMembers), "utf-8");
+}
