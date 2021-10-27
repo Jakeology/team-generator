@@ -136,4 +136,16 @@ function teamMenu() {
       });
   }
 
+  function generateTeam() {
+    if (!fs.existsSync("./dist")) {
+      fs.mkdirSync("./dist");
+    }
+    fs.copyFileSync("./src/style.css", "./dist/style.css");
+    fs.writeFileSync("./dist/index.html", pageTemplate(teamMembers), "utf-8");
+  }
+
+  getManager();
+
 }
+
+teamMenu();
