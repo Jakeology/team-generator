@@ -104,4 +104,36 @@ function teamMenu() {
         getTeam();
       });
   }
+
+  function getIntern() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "internName",
+          message: "What is the intern's name?",
+        },
+        {
+          type: "input",
+          name: "internEmail",
+          message: "What is the intern's email?",
+        },
+        {
+          type: "input",
+          name: "internId",
+          message: "What is the intern's id?",
+        },
+        {
+          type: "input",
+          name: "internSchool",
+          message: "What school did the intern attend?",
+        },
+      ])
+      .then((answers) => {
+        const intern = new Intern(answers.internName, answers.internEmail, answers.internId, answers.internSchool);
+        teamMembers.push(intern);
+        getTeam();
+      });
+  }
+
 }
