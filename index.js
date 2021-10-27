@@ -58,21 +58,50 @@ function teamMenu() {
       .then((choice) => {
         switch (choice.addTeamMember) {
           case "Engineer":
-            //getEngineer();
+            getEngineer();
             break;
           case "Intern":
-            //getIntern();
+            getIntern();
             break;
           default:
-          //generateTeam();
+            generateTeam();
         }
       });
   }
-}
 
-function generateTeam() {
-  if (!fs.existsSync("./dist")) {
-    fs.mkdirSync("./dist");
+  function getEngineer() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "engineerName",
+          message: "What is the engineer's name?",
+        },
+        {
+          type: "input",
+          name: "engineerEmail",
+          message: "What is the engineer's email?",
+        },
+        {
+          type: "input",
+          name: "engineerId",
+          message: "What is the engineer's id?",
+        },
+        {
+          type: "input",
+          name: "engineerGithub",
+          message: "What is the engineer's github?",
+        },
+      ])
+      .then((answers) => {
+        const engineer = new Engineer(
+          answers.engineerName,
+          answers.engineerEmail,
+          answers.engineerId,
+          answers.engineerGithub
+        );
+        teamMembers.push(engineer);
+        getTeam();
+      });
   }
-  fs.writeFileSync("./dist/index.html", pageTemplate(teamMembers), "utf-8");
 }
