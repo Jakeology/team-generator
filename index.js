@@ -7,6 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
 const teamMembers = [];
+const ids = [];
 
 function teamMenu() {
   function getManager() {
@@ -68,6 +69,7 @@ function teamMenu() {
           answers.managerOfficeNumber
         );
         teamMembers.push(manager);
+        ids.push(answers.managerId);
         getTeam();
       });
   }
@@ -129,7 +131,10 @@ function teamMenu() {
           validate: (engineerId) => {
             const validNum = engineerId.match(/^[0-9]+$/);
             if (validNum) {
-              return true;
+              if(!ids.includes(engineerId)) {
+                return true;
+              }
+              return "This id has already been used. Please enter a different number."
             }
             return "Please enter a valid id.";
           },
@@ -154,6 +159,7 @@ function teamMenu() {
           answers.engineerGithub
         );
         teamMembers.push(engineer);
+        ids.push(answers.engineerId);
         getTeam();
       });
   }
@@ -191,7 +197,10 @@ function teamMenu() {
           validate: (internId) => {
             const validNum = internId.match(/^[0-9]+$/);
             if (validNum) {
-              return true;
+              if(!ids.includes(internId)) {
+                return true;
+              }
+              return "This id has already been used. Please enter a different number."
             }
             return "Please enter a valid id.";
           },
@@ -211,6 +220,7 @@ function teamMenu() {
       .then((answers) => {
         const intern = new Intern(answers.internName, answers.internEmail, answers.internId, answers.internSchool);
         teamMembers.push(intern);
+        ids.push(answers.internId);
         getTeam();
       });
   }
