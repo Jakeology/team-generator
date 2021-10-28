@@ -17,11 +17,11 @@ function teamMenu() {
           name: "managerName",
           message: "What is the team manager's name?",
           validate: (managerName) => {
-            if(managerName) {
+            if (managerName) {
               return true;
             }
-            return "Please enter a valid manager name."
-          }
+            return "Please enter a valid name.";
+          },
         },
         {
           type: "input",
@@ -29,11 +29,11 @@ function teamMenu() {
           message: "What is the team manager's email?",
           validate: (managerEmail) => {
             const validEmail = managerEmail.match(/\S+@\S+\.\S+/);
-            if(validEmail) {
+            if (validEmail) {
               return true;
             }
-            return "Please enter a valid manager email."
-          }
+            return "Please enter a valid email.";
+          },
         },
         {
           type: "input",
@@ -41,11 +41,11 @@ function teamMenu() {
           message: "What is the team manager's id?",
           validate: (managerId) => {
             const validNum = managerId.match(/^[0-9]+$/);
-            if(validNum) {
+            if (validNum) {
               return true;
             }
-            return "Please enter a valid manager id."
-          }
+            return "Please enter a valid id.";
+          },
         },
         {
           type: "input",
@@ -53,12 +53,12 @@ function teamMenu() {
           message: "What is the team manager's office number?",
           validate: (managerOfficeNumber) => {
             const validNum = managerOfficeNumber.match(/^[0-9]+$/);
-            if(validNum) {
+            if (validNum) {
               return true;
             }
-            return "Please enter a valid manager office number."
-          }
-        }
+            return "Please enter a valid office number.";
+          },
+        },
       ])
       .then((answers) => {
         const manager = new Manager(
@@ -103,21 +103,47 @@ function teamMenu() {
           type: "input",
           name: "engineerName",
           message: "What is the engineer's name?",
+          validate: (engineerName) => {
+            if (engineerName) {
+              return true;
+            }
+            return "Please enter a valid name.";
+          },
         },
         {
           type: "input",
           name: "engineerEmail",
           message: "What is the engineer's email?",
+          validate: (engineerEmail) => {
+            const validEmail = engineerEmail.match(/\S+@\S+\.\S+/);
+            if (validEmail) {
+              return true;
+            }
+            return "Please enter a valid email.";
+          },
         },
         {
           type: "input",
           name: "engineerId",
           message: "What is the engineer's id?",
+          validate: (engineerId) => {
+            const validNum = engineerId.match(/^[0-9]+$/);
+            if (validNum) {
+              return true;
+            }
+            return "Please enter a valid id.";
+          },
         },
         {
           type: "input",
           name: "engineerGithub",
           message: "What is the engineer's github?",
+          validate: (engineerGithub) => {
+            if (engineerGithub) {
+              return true;
+            }
+            return "Please enter a valid github username.";
+          },
         },
       ])
       .then((answers) => {
@@ -139,21 +165,47 @@ function teamMenu() {
           type: "input",
           name: "internName",
           message: "What is the intern's name?",
+          validate: (internName) => {
+            if (internName) {
+              return true;
+            }
+            return "Please enter a valid name.";
+          },
         },
         {
           type: "input",
           name: "internEmail",
           message: "What is the intern's email?",
+          validate: (internEmail) => {
+            const validEmail = internEmail.match(/\S+@\S+\.\S+/);
+            if (validEmail) {
+              return true;
+            }
+            return "Please enter a valid email.";
+          },
         },
         {
           type: "input",
           name: "internId",
           message: "What is the intern's id?",
+          validate: (internId) => {
+            const validNum = internId.match(/^[0-9]+$/);
+            if (validNum) {
+              return true;
+            }
+            return "Please enter a valid id.";
+          },
         },
         {
           type: "input",
           name: "internSchool",
           message: "What school did the intern attend?",
+          validate: (internSchool) => {
+            if (internSchool) {
+              return true;
+            }
+            return "Please enter a valid school name.";
+          },
         },
       ])
       .then((answers) => {
@@ -172,7 +224,6 @@ function teamMenu() {
   }
 
   getManager();
-
 }
 
 teamMenu();
