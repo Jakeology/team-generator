@@ -16,22 +16,49 @@ function teamMenu() {
           type: "input",
           name: "managerName",
           message: "What is the team manager's name?",
+          validate: (managerName) => {
+            if(managerName) {
+              return true;
+            }
+            return "Please enter a valid manager name."
+          }
         },
         {
           type: "input",
           name: "managerEmail",
           message: "What is the team manager's email?",
+          validate: (managerEmail) => {
+            const validEmail = managerEmail.match(/\S+@\S+\.\S+/);
+            if(validEmail) {
+              return true;
+            }
+            return "Please enter a valid manager email."
+          }
         },
         {
           type: "input",
           name: "managerId",
           message: "What is the team manager's id?",
+          validate: (managerId) => {
+            const validNum = managerId.match(/^[0-9]+$/);
+            if(validNum) {
+              return true;
+            }
+            return "Please enter a valid manager id."
+          }
         },
         {
           type: "input",
           name: "managerOfficeNumber",
           message: "What is the team manager's office number?",
-        },
+          validate: (managerOfficeNumber) => {
+            const validNum = managerOfficeNumber.match(/^[0-9]+$/);
+            if(validNum) {
+              return true;
+            }
+            return "Please enter a valid manager office number."
+          }
+        }
       ])
       .then((answers) => {
         const manager = new Manager(
