@@ -1,0 +1,28 @@
+{
+  "name": "team-generator",
+  "description": "A team generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakeology/team-generator.git"
+  },
+  "author": "Jakeology",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jakeology/team-generator/issues"
+  },
+  "homepage": "https://github.com/Jakeology/team-generator#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
