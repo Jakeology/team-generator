@@ -231,6 +231,8 @@ function teamMenu() {
     }
     fs.copyFileSync("./src/style.css", "./dist/style.css");
     fs.writeFileSync("./dist/index.html", pageTemplate(teamMembers), "utf-8");
+    console.log("");
+    console.log(`\x1b[32mSuccessfully created your team! Files have been generated to\x1b[35m ${__dirname}\\dist\\index.html`);
   }
 
   getManager();
