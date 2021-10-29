@@ -1,4 +1,4 @@
-#Team Generator
+# Team Generator
 
 ## Purpose
 An application built with node, inquirer, and jest to provide a quick and easy team generator. All you have to do is answer the questions about your team!
